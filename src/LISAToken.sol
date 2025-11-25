@@ -41,6 +41,8 @@ contract LISAToken is
         __Ownable_init(initialOwner);
         __UUPSUpgradeable_init();
 
+        require(initialOwner != address(0), "Owner cannot be zero address");
+
         // Mint 1 billion tokens (1,000,000,000 * 10^18)
         _mint(initialOwner, 1_000_000_000 * 10 ** decimals());
     }
@@ -66,7 +68,9 @@ contract LISAToken is
      * Called by upgradeToAndCall
      * @param newImplementation Address of the new implementation
      */
-    function _authorizeUpgrade(address newImplementation) internal override onlyOwner {}
+    function _authorizeUpgrade(
+        address newImplementation
+    ) internal override onlyOwner {}
 
     /**
      * @dev Hook that is called before any transfer of tokens
