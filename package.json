@@ -1,0 +1,35 @@
+{
+  "name": "lisa-token",
+  "version": "1.0.0",
+  "description": "LISA Token - Upgradeable ERC20/BEP20 token for BSC",
+  "scripts": {
+    "build": "forge build",
+    "test": "forge test -vvv",
+    "test:gas": "forge test --gas-report",
+    "coverage": "forge coverage",
+    "clean": "forge clean",
+    "deploy:bsc": "forge script script/DeployLISA.s.sol:DeployLISA --rpc-url $BSC_RPC_URL --broadcast --verify -vvvv",
+    "deploy:testnet": "forge script script/DeployLISA.s.sol:DeployLISA --rpc-url $BSC_TESTNET_RPC_URL --broadcast --verify -vvvv",
+    "deploy:bsc:dry": "forge script script/DeployLISA.s.sol:DeployLISA --rpc-url $BSC_RPC_URL -vvvv",
+    "upgrade:bsc": "forge script script/UpgradeLISA.s.sol:UpgradeLISA --rpc-url $BSC_RPC_URL --broadcast --verify -vvvv",
+    "upgrade:bsc:dry": "forge script script/UpgradeLISA.s.sol:UpgradeLISA --rpc-url $BSC_RPC_URL -vvvv",
+    "verify": "forge verify-contract",
+    "format": "forge fmt",
+    "format:check": "forge fmt --check"
+  },
+  "keywords": [
+    "token",
+    "erc20",
+    "bep20",
+    "bsc",
+    "upgradeable",
+    "foundry"
+  ],
+  "author": "Peng Deng",
+  "license": "MIT",
+  "devDependencies": {
+    "@openzeppelin/contracts": "^5.4.0",
+    "@openzeppelin/contracts-upgradeable": "^5.4.0",
+    "forge-std": "^1.1.2"
+  }
+}
